@@ -1,5 +1,7 @@
 # go-jsonutil
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/kamiaka/go-jsonutil.svg)](https://pkg.go.dev/github.com/kamiaka/go-jsonutil)
+
 JSON Utilities for Go-lang `encoding/json` package.
 
 ## Ordered JSON object.
