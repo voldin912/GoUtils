@@ -106,7 +106,7 @@ func UnmarshalEntries(bs []byte, resolveEntry func(key string, data []byte) erro
 //       Key:   entries[i].Key,
 //       Value: entries[i].Int,
 //     }
-// })
+//   })
 func MarshalEntries(length int, resolveEntry func(i int) *Entry) ([]byte, error) {
 	buf := bytes.NewBuffer([]byte{'{'})
 
