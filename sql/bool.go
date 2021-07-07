@@ -5,6 +5,12 @@ import "fmt"
 // Bool is bool value represented by TinyInt(1).
 type Bool bool
 
+// NewBool returns new Bool pointer.
+func NewBool(b bool) *Bool {
+	v := Bool(b)
+	return &v
+}
+
 // Bool returns value as bool.
 func (b Bool) Bool() bool {
 	return bool(b)

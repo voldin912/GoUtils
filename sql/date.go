@@ -7,6 +7,12 @@ import (
 // Date value represented by `"YYYY-MM-DD"`.
 type Date time.Time
 
+// NewDate returns new Date pointer.
+func NewDate(t time.Time) *Date {
+	v := Date(t)
+	return &v
+}
+
 // DateFormat is time layout string for Date.
 const DateFormat = `"2006-01-02"`
 

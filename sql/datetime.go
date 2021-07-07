@@ -7,6 +7,12 @@ import (
 // DateTime value represented by `"YYYY-MM-DD hh:mm:ss"`
 type DateTime time.Time
 
+// NewDateTime returns new Date pointer.
+func NewDateTime(t time.Time) *DateTime {
+	v := DateTime(t)
+	return &v
+}
+
 // DateTimeFormat is time layout string for DateTime.
 const DateTimeFormat = `"2006-01-02 15:04:05"`
 
