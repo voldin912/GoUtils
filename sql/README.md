@@ -1,5 +1,7 @@
 # JSON utility package for SQL
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/kamiaka/go-jsonutil/sql.svg)](https://pkg.go.dev/github.com/kamiaka/go-jsonutil/sql)
+
 JSON Utilities for Go-lang `encoding/json` package in SQL-based API response.
 
 ```go
