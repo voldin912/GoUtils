@@ -103,13 +103,15 @@ func ExampleUnmarshalEntries() {
 	// }
 
 	var entries []*IntEntry
-	jsonutil.UnmarshalEntries([]byte(`{"a":1,"b":2,"c":3}`), func(key string, data []byte) error {
+	if err := jsonutil.UnmarshalEntries([]byte(`{"a":1,"b":2,"c":3}`), func(key string, data []byte) error {
 		entry := &IntEntry{
 			Key: key,
 		}
 		entries = append(entries, entry)
 		return json.Unmarshal(data, &entry.Int)
-	})
+	}); err != nil {
+		fmt.Printf("error: %v", err)
+	}
 
 	for i, v := range entries {
 		fmt.Printf("#%d: %+v\n", i, v)
@@ -162,7 +164,7 @@ func ExampleUnmarshalEntries_multiFields() {
 	// }
 
 	var entries []*MultiFieldEntry
-	jsonutil.UnmarshalEntries(
+	if err := jsonutil.UnmarshalEntries(
 		[]byte(`{"foo":{"a":"A1","b":42},"bar":{"a":"A2","b":99},"buz":null}`),
 		func(key string, data []byte) error {
 			var entry *MultiFieldEntry
@@ -173,7 +175,9 @@ func ExampleUnmarshalEntries_multiFields() {
 			entries = append(entries, entry)
 			return nil
 		},
-	)
+	); err != nil {
+		fmt.Printf("error: %v", err)
+	}
 
 	for i, v := range entries {
 		fmt.Printf("#%d: %+v\n", i, v)
